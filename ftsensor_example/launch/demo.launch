@@ -1,0 +1,8 @@
+<launch>
+    <!--launch ROSbag file-->
+    <node pkg="rosbag" type="play" name="rosbag" args="$(find encoder_example)/bag/force_torque_sensor.bag --delay 3"/>
+    <!--node which plot Force value from topic where export from bag file-->
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_force" args="/torque_sensor/wrench/force" />
+    <!--nod which plot Torque value from topic where export from bag file-->
+    <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_torque" args="/torque_sensor/wrench/torque" />
+</launch>
